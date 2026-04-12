@@ -8,9 +8,14 @@ import db from "./kambaz/database/index.js";
 import UserRoutes from "./kambaz/users/routes.js";
 import CourseRoutes from "./kambaz/courses/routes.js";
 import ModulesRoutes from "./kambaz/modules/routes.js";
+import mongoose from "mongoose";
+
+
+
+const CONNECTION_STRING = process.env.DATABASE_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kambaz"
+mongoose.connect(CONNECTION_STRING);
 
 const app = express();
-
 app.use(cors({
    credentials: true,
    origin: process.env.CLIENT_URL || "http://localhost:3000",
@@ -38,9 +43,9 @@ if (process.env.SERVER_ENV !== "development") {
 }
 app.use(session(sessionOptions));
 
-UserRoutes(app, db);   
-CourseRoutes(app, db);
-ModulesRoutes(app, db);
+UserRoutes(app);   
+CourseRoutes(app);
+ModulesRoutes(app);
 Lab5(app);
 Hello(app);
 

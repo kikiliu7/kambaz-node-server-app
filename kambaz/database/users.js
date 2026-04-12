@@ -13,6 +13,7 @@ export default[
     "lastActivity": "2020-10-01",
     "totalActivity": "10:21:32"
   },
+
   {
     "_id": "234",
     "username": "dark_knight",
@@ -27,6 +28,7 @@ export default[
     "lastActivity": "2020-11-02",
     "totalActivity": "15:32:43"
   },
+
   {
     "_id": "345",
     "username": "black_widow",
@@ -41,6 +43,7 @@ export default[
     "lastActivity": "2020-11-05",
     "totalActivity": "13:23:34"
   },
+
   {
     "_id": "456",
     "username": "thor_odinson",
@@ -55,6 +58,7 @@ export default[
     "lastActivity": "2020-12-01",
     "totalActivity": "11:22:33"
   },
+
   {
     "_id": "567",
     "username": "hulk_smash",
@@ -69,6 +73,7 @@ export default[
     "lastActivity": "2020-12-01",
     "totalActivity": "22:33:44"
   },
+
   {
     "_id": "678",
     "username": "ring_bearer",
@@ -83,6 +88,7 @@ export default[
     "lastActivity": "2020-12-02",
     "totalActivity": "44:33:22"
   },
+
   {
     "_id": "789",
     "username": "strider",
@@ -97,6 +103,7 @@ export default[
     "lastActivity": "2020-12-04",
     "totalActivity": "12:23:34"
   },
+
   {
     "_id": "890",
     "username": "elf_archer",
@@ -111,6 +118,7 @@ export default[
     "lastActivity": "2020-11-11",
     "totalActivity": "21:32:43"
   },
+  
   {
     "_id": "777",
     "username": "ada",
