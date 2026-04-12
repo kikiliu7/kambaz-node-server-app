@@ -1,30 +1,35 @@
-import AssignmentsDao from "./dao.js"; // Note: Importing the default function
+import AssignmentsDao from "./dao.js";
 
-export default function AssignmentRoutes(app, db) {
-  const dao = AssignmentsDao(db);
+export default function AssignmentRoutes(app) {
+  const dao = AssignmentsDao();
 
-  app.post("/api/courses/:courseId/assignments", (req, res) => {
-    const { courseId } = req.params;
-    const assignment = { ...req.body, course: courseId };
-    const newAssignment = dao.createAssignment(assignment);
-    res.json(newAssignment);
-  });
-
-  app.get("/api/courses/:courseId/assignments", (req, res) => {
-    const { courseId } = req.params;
-    const assignments = dao.findAssignmentsForCourse(courseId);
+  app.get("/api/courses/:cid/assignments", async (req, res) => {
+    const { cid } = req.params;
+    const assignments = await dao.findAssignmentsForCourse(cid);
     res.json(assignments);
   });
 
-  app.put("/api/assignments/:assignmentId", (req, res) => {
-    const { assignmentId } = req.params;
-    const updatedAssignment = dao.updateAssignment(assignmentId, req.body);
-    res.json(updatedAssignment);
+  app.post("/api/courses/:cid/assignments", async (req, res) => {
+    const { cid } = req.params;
+    const assignment = await dao.createAssignment({ ...req.body, course: cid });
+    res.json(assignment);
   });
 
-  app.delete("/api/assignments/:assignmentId", (req, res) => {
-    const { assignmentId } = req.params;
-    const status = dao.deleteAssignment(assignmentId);
+  app.put("/api/assignments/:aid", async (req, res) => {
+    const { aid } = req.params;
+    const status = await dao.updateAssignment(aid, req.body);
     res.json(status);
   });
+
+  app.delete("/api/assignments/:aid", async (req, res) => {
+    const { aid } = req.params;
+    const status = await dao.deleteAssignment(aid);
+    res.json(status);
+  });
+
+  app.get("/api/assignments/:aid", async (req, res) => {
+  const { aid } = req.params;
+  const assignment = await dao.findAssignmentById(aid);
+  res.json(assignment);
+});
 }

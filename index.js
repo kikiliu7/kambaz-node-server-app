@@ -8,7 +8,9 @@ import db from "./kambaz/database/index.js";
 import UserRoutes from "./kambaz/users/routes.js";
 import CourseRoutes from "./kambaz/courses/routes.js";
 import ModulesRoutes from "./kambaz/modules/routes.js";
+import EnrollmentRoutes from "./kambaz/enrollments/routes.js";
 import mongoose from "mongoose";
+import AssignmentRoutes from "./kambaz/assignments/routes.js";
 
 
 
@@ -46,6 +48,8 @@ app.use(session(sessionOptions));
 UserRoutes(app);   
 CourseRoutes(app);
 ModulesRoutes(app);
+EnrollmentRoutes(app);
+AssignmentRoutes(app);
 Lab5(app);
 Hello(app);
 
