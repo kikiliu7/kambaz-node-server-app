@@ -16,6 +16,7 @@ export default function UserRoutes(app) {
   };
 
 const findAllUsers = async (req, res) => {
+  console.log("findAllUsers called");
   const { role, name } = req.query;
   console.log("query params:", { role, name });
   if (role) {

@@ -48,6 +48,7 @@ if (process.env.SERVER_ENV !== "development") {
 app.use(session(sessionOptions));
 
 UserRoutes(app);   
+console.log("UserRoutes registered");
 CourseRoutes(app);
 ModulesRoutes(app);
 EnrollmentRoutes(app);
