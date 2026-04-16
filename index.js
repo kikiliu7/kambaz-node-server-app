@@ -45,7 +45,13 @@ if (process.env.SERVER_ENV !== "development") {
     // domain: process.env.SERVER_URL,
   };
 }
+
+
 app.use(session(sessionOptions));
+
+app.get("/test", (req, res) => {
+  res.json({ message: "server is working" });
+});
 
 UserRoutes(app);   
 console.log("UserRoutes registered");
