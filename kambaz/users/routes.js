@@ -63,17 +63,18 @@ const findAllUsers = async (req, res) => {
     res.json(currentUser);
 
   };
-  const signin = async (req, res) => {
-    const { username, password } = req.body;
-    const currentUser = await dao.findUserByCredentials(username, password);
-    if (currentUser) {
-      req.session["currentUser"] = currentUser;
+const signin = async (req, res) => {
+  const { username, password } = req.body;
+  console.log("signin attempt:", username, password);
+  const currentUser = await dao.findUserByCredentials(username, password);
+  console.log("found user:", currentUser);
+  if (currentUser) {
+    req.session["currentUser"] = currentUser;
     res.json(currentUser);
-    } else {
-      res.status(401).json({ message: "Unable to login. Try again later." });
-    }
-
-  };
+  } else {
+    res.status(401).json({ message: "Unable to login. Try again later." });
+  }
+};
   
   const signout = (req, res) => {
     req.session.destroy();
